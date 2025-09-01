@@ -1,4 +1,6 @@
+
 @import url('https://cdn.jsdelivr.net/gh/repalash/gilroy-free-webfont@fonts/Gilroy-Extrabold.css');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -59,9 +61,13 @@ a {
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
 
+    /* Brand */
     --catalyst-hover: #C73740;
     --catalyst-contact: #E9E9E9;
     --catalyst-text: #1E1C1B;
+
+    /* حجم افتراضي للنقش يمكن تغييره عبر media queries */
+    --pattern-size: 160px;
   }
 
   .dark {
@@ -97,10 +103,49 @@ a {
     @apply border-border;
   }
   body {
-    @apply bg-catalyst-bg text-foreground; 
+    @apply bg-catalyst-bg text-foreground;
   }
 }
 
+/* ===== Pattern Background (AVIF/WebP مع تكرار) ===== */
+/* ضع الملفات في: public/images/pattern.avif و pattern.webp */
+.bg-pattern {
+  background-image: image-set(
+    url('/images/pattern.avif') type('image/avif'),
+    url('/images/pattern.webp') type('image/webp')
+  );
+  background-repeat: repeat;
+  background-size: var(--pattern-size) auto;
+}
+
+/* تكبير خفيف للنقش على الشاشات الكبيرة */
+@media (min-width: 1024px) {
+  :root { --pattern-size: 180px; }
+}
+@media (min-width: 1536px) {
+  :root { --pattern-size: 200px; }
+}
+
+/* خيار مفيد للفوتر مع خلفية ملونة مختلفة */
+.bg-pattern-overlay {
+  position: relative;
+}
+.bg-pattern-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: image-set(
+    url('/images/pattern.avif') type('image/avif'),
+    url('/images/pattern.webp') type('image/webp')
+  );
+  background-repeat: repeat;
+  background-size: var(--pattern-size) auto;
+  opacity: 0.2; /* شفافية للنقش فوق اللون */
+  mix-blend-mode: overlay; /* يعطي إحساس الدمج */
+  pointer-events: none;
+}
+
+/* Utils */
 .clip-tab {
   clip-path: polygon(0 0, calc(100% - 25px) 0, 100% 50%, calc(100% - 25px) 100%, 0 100%);
 }
