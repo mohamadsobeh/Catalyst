@@ -21,15 +21,20 @@ export default function Work() {
       <div className="max-w-[1280px] mx-auto">
         <div className="flex items-start justify-between mb-12">
           <div>
-            <h2 className="text-[28px] sm:text-[36px] md:text-[45px] font-gilroy text-[#545454]">
+            <h2 className="text-[28px] sm:text-[36px] md:text-[45px] font-gilroySemiBold text-[#545454]">
               Our Work
             </h2>
 
-            <p className="mt-6 text-[22px] sm:text-[30px] md:text-[54px] leading-[1] tracking-[-0.01em] text-[#AAACAC] max-w-4xl font-normal">
+            <p
+              className="mt-6 
+             text-[22px] sm:text-[30px] md:text-[60px] 
+             leading-[100%] tracking-[-0.04em] 
+             text-[#AAACAC] max-w-4xl 
+             font-ivy"
+            >
               Preview your ad, hit Publish, and watch it go live in seconds. You
               can even save drafts or boost visibility to reach more buyers.
             </p>
-            
           </div>
           {/* <span className="text-red-600 text-lg sm:text-xl md:text-2xl font-semibold">
             (01)
@@ -60,13 +65,15 @@ export default function Work() {
 
                   <CardFooter className="flex flex-col items-start p-4 relative">
                     <div className="flex items-center justify-between w-full">
-                      <h3 className="text-base font-semibold text-gray-900">
+                      {/* العنوان */}
+                      <h3 className="text-base text-gray-900 font-gilroy font-bold">
                         {item.title}
                       </h3>
 
+                      {/* التصنيف */}
                       <div className="relative flex items-center">
                         <span
-                          className={`text-sm font-medium ${item.categoryColor} transition-all duration-500 ease-in-out group-hover:opacity-0`}
+                          className={`text-sm font-gilroy font-medium ${item.categoryColor} transition-all duration-500 ease-in-out group-hover:opacity-0`}
                         >
                           ({item.category})
                         </span>
@@ -80,7 +87,8 @@ export default function Work() {
                       </div>
                     </div>
 
-                    <p className="mt-2 text-sm text-gray-600">
+                    {/* الوصف */}
+                    <p className="mt-2 text-sm text-gray-600 font-ivy">
                       {item.description}
                     </p>
                   </CardFooter>
@@ -94,7 +102,7 @@ export default function Work() {
           <div className="flex justify-center mt-10">
             <Button
               onClick={() => setShowAll(true)}
-              className="bg-[#DC5758] text-white px-8 py-4 rounded-full hover:bg-[#C73740] transition-all duration-300"
+              className="bg-[#DC5758] text-white px-8 py-4 rounded-full font-gilroySemiBold hover:bg-[#C73740] transition-all duration-300"
             >
               Show more
             </Button>

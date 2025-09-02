@@ -16,7 +16,7 @@ export default function Hero() {
         {/* العنوان */}
         <h1
           className="text-[24px] sm:text-[32px] md:text-[44px] lg:text-[64px] 
-                     font-semibold text-black 
+                     font-gilroySemiBold text-black 
                      leading-[120%] tracking-tight"
         >
           tech solutions tailored for <br className="hidden sm:block" />
@@ -33,7 +33,7 @@ export default function Hero() {
                      rounded-full 
                      bg-[#DC5758] 
                      text-sm sm:text-lg md:text-xl lg:text-[24px] 
-                     font-semibold text-white 
+                     font-gilroySemiBold text-white 
                      transition-colors hover:bg-[#C73740]"
         >
           Have A Project In Mind

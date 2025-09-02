@@ -34,6 +34,7 @@ export default function Header() {
   return (
     <header className="sticky top-8 z-50 w-full bg-catalyst-bg bg-pattern bg-repeat backdrop-blur">
       <div className="container flex items-start justify-between">
+        {/* Logo */}
         <ScrollLink
           to="hero"
           smooth
@@ -53,6 +54,7 @@ export default function Header() {
           </span>
         </ScrollLink>
 
+        {/* Desktop Navigation */}
         <div className="hidden md:flex flex-1 justify-center mt-3">
           <NavigationMenu>
             <NavigationMenuList className="flex h-[60px] lg:h-[67px] items-center gap-2 rounded-full bg-white px-6">
@@ -66,7 +68,7 @@ export default function Header() {
                       offset={-80}
                       onClick={() => setActive(item.to)}
                       className={cn(
-                        "rounded-full px-5 py-2 text-base font-medium text-black transition-colors cursor-pointer",
+                        "rounded-full px-5 py-2 text-base font-gilroySemiBold text-black transition-colors cursor-pointer",
                         "hover:bg-catalyst-hover hover:text-white",
                         active === item.to && "bg-catalyst-hover text-white"
                       )}
@@ -94,13 +96,15 @@ export default function Header() {
           </NavigationMenu>
         </div>
 
+        {/* Email link (desktop only) */}
         <a
           href="mailto:hello@example.com"
-          className="hidden md:flex mt-3 text-[20px] font-gilroy text-catalyst-text"
+          className="hidden md:flex mt-3 text-[20px] font-gilroySemiBold text-catalyst-text"
         >
           Email us
         </a>
 
+        {/* Mobile Navigation */}
         <div className="md:hidden">
           <Sheet>
             <SheetTrigger asChild>
@@ -112,7 +116,8 @@ export default function Header() {
                 <Menu />
               </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="bg-white text-black w-64">
+            {/* ✅ القائمة تظهر من اليمين */}
+            <SheetContent side="right" className="bg-white text-black w-64">
               <SheetTitle className="sr-only">Mobile Navigation</SheetTitle>
               <div className="flex flex-col gap-4 mt-10 px-4 text-base font-medium">
                 {navItems.map((item) => (

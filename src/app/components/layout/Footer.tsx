@@ -6,26 +6,25 @@ import { Twitter, Linkedin, Facebook, Instagram } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="relative bg-[#A12438] text-white px-6 sm:px-10 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20">
-      {/* خلفية الباترن مع overlay */}
+    <footer className="relative  text-white px-6 sm:px-10 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20">
+      
       <div className="absolute inset-0">
-        <div className="w-full h-full bg-pattern opacity-80 mix-blend-multiply"></div>
+        <div className="w-full h-full bg-footer-pattern bg-repeat backdrop-blur"></div>
       </div>
 
       <div className="relative z-10 max-w-[1280px] mx-auto">
-        {/* القسم العلوي */}
+       
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          {/* النص الرئيسي + الإيميل */}
+          
           <div>
-            <h2 className="text-[22px] sm:text-[26px] md:text-[32px] font-normal leading-[1.4] text-white">
+            <h2 className="text-[22px] sm:text-[26px] md:text-[32px] font-gilroyMedium leading-[1.4] text-white">
               Your next success takes one <br /> hello
             </h2>
-            <p className="mt-6 text-[20px] sm:text-[24px] md:text-[28px] font-semibold text-black tracking-tight">
+            <p className="mt-6 text-[20px] sm:text-[24px] md:text-[28px] font-gilroySemiBold text-black tracking-tight">
               Support@catalysttechs.com
             </p>
           </div>
 
-          {/* زر Contact us بمحاذاة اليمين */}
           <div className="flex md:justify-end">
             <Link
               href="#contact"
@@ -39,12 +38,10 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* خط فاصل */}
         <div className="my-10 border-t border-white/15"></div>
 
-        {/* القسم السفلي */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-          {/* Logo */}
+         
           <div className="flex items-center gap-2">
             <Image
               src="/footer.svg"
@@ -57,22 +54,16 @@ export default function Footer() {
             </span>
           </div>
 
-          {/* Contacts */}
           <div className="flex flex-col  md:justify-self-end md:text-start">
-            {/* Title */}
-            <h3 className="text-base sm:text-lg font-gilroy mb-3 text-[#D3D3D3]">
+            <h3 className="text-base sm:text-lg font-gilroyMedium mb-3 text-[#D3D3D3]">
               Contacts
             </h3>
-
-            {/* Phone */}
-            <p className="text-sm font-gilroy text-white mb-2">
+            <p className="text-sm font-gilroyMedium text-white mb-2">
               (+963) 964603911
             </p>
-
-            {/* Email */}
             <Link
               href="mailto:Support@Catalysttechs.com"
-              className="text-sm font-gilroy text-white hover:underline break-words"
+              className="text-sm font-gilroyMedium text-white hover:underline break-words"
             >
               Support@Catalysttechs.com
             </Link>
@@ -80,7 +71,7 @@ export default function Footer() {
 
           {/* Social Media */}
           <div className="flex flex-col md:justify-self-end md:text-right">
-            <h3 className="text-base sm:text-lg font-gilroy mb-3 text-[#D3D3D3]">
+            <h3 className="text-base sm:text-lg font-gilroyMedium mb-3 text-[#D3D3D3]">
               Social Media
             </h3>
             <ul className="flex flex-col gap-2 text-sm text-white/90">
@@ -124,8 +115,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* النص السفلي */}
-        <div className="mt-10 text-xs text-center sm:text-left text-white/70">
+        <div className="mt-10 font-gilroyMedium text-xs text-center sm:text-left text-white/70">
           © {new Date().getFullYear()} Catalyst Technologies - All Rights
           Reserved.
         </div>

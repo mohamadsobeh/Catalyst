@@ -62,22 +62,24 @@ module.exports = {
           4: "hsl(var(--chart-4))",
           5: "hsl(var(--chart-5))",
         },
-       
         catalyst: {
-          bg: "#E9E9E9", 
-          hover: "#C73740", 
-          contact: "#E9E9E9", 
-          text: "#1E1C1B", 
+          bg: "#E9E9E9",
+          hover: "#C73740",
+          contact: "#E9E9E9",
+          text: "#1E1C1B",
         },
       },
       backgroundImage: {
-  pattern: "url('/pattern.png')",
-},
-      
+        pattern: "url('/pattern.png')",
+        "footer-pattern": "url('/fotter.png')",
+      },
       fontFamily: {
-        gilroy: ["Gilroy-SemiBold", "sans-serif"],
+        gilroyMedium: ["Gilroy-Medium", "sans-serif"],
+        gilroySemiBold: ["Gilroy-SemiBold", "sans-serif"],
+        ivyRegular: ["IvyStyleSans-Regular", "sans-serif"],
+        ivyBold: ["IvyStyleSans-Bold", "sans-serif"],
       },
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
+};

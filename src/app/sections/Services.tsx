@@ -8,10 +8,10 @@ export default function Services() {
       <div className="max-w-[1280px] mx-auto">
         <div className="flex items-start justify-between mb-12">
           <div>
-            <h2 className="text-[28px] sm:text-[36px] md:text-[45px] font-gilroy text-[#545454]">
+            <h2 className="text-[28px] sm:text-[36px] md:text-[45px] font-gilroySemiBold text-[#545454]">
               Our services
             </h2>
-            <p className="mt-4 text-[20px] sm:text-[26px] md:text-[32px] leading-snug max-w-2xl">
+            <p className="mt-4 text-[20px] sm:text-[26px] md:text-[32px] leading-snug max-w-2xl font-ivy font-normal">
               preview your ad, hit Publish, and watch it go live in seconds. You
               can even save drafts or boost visibility to reach more buyers.
             </p>
@@ -30,11 +30,11 @@ export default function Services() {
                 <p className="text-sm text-gray-400 mb-6 mt-2">
                   ({service.id})
                 </p>
-                <h3 className="font-gilroy font-semibold text-3xl leading-[100%] tracking-[-0.04em] text-[#C73740] uppercase mb-10">
+                <h3 className="font-gilroySemiBold text-3xl leading-[100%] tracking-[-0.04em] text-[#C73740] uppercase mb-10">
                   {service.title}
                 </h3>
 
-                <p className="text-[#919190] text-md leading-relaxed mb-10">
+                <p className="text-[#919190] text-md leading-relaxed mb-10 font-ivy">
                   {service.description}
                 </p>
               </CardContent>
