@@ -29,7 +29,11 @@ export default function Work() {
               Preview your ad, hit Publish, and watch it go live in seconds. You
               can even save drafts or boost visibility to reach more buyers.
             </p>
+            
           </div>
+          {/* <span className="text-red-600 text-lg sm:text-xl md:text-2xl font-semibold">
+            (01)
+          </span> */}
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
