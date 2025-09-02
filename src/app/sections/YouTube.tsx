@@ -16,9 +16,7 @@ const YouTube: React.FC<YouTubeProps> = ({ videoUrl }) => {
   }
 
   const videoId = getYouTubeId(videoUrl)
-  if (!videoId) {
-    return <div className="text-red-500 text-center">Invalid video URL</div>
-  }
+  const isInvalid = !videoId
 
   // Lazy mount للـ iframe عند دخول القسم لنطاق الرؤية
   useEffect(() => {
@@ -45,25 +43,29 @@ const YouTube: React.FC<YouTubeProps> = ({ videoUrl }) => {
       id="youtube"
       className="w-full flex justify-center items-center  py-12 md:py-20"
     >
-      <div
-        ref={wrapRef}
-        className="relative w-[95%] md:w-[1771px] h-[220px] sm:h-[400px] md:h-[785px] bg-[#18181899] rounded-md shadow-2xl flex justify-center items-center"
-      >
-        {inView ? (
-          <iframe
-            className="w-[90%] h-[90%] rounded-xl"
-            src={`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1`}
-            title="YouTube video player"
-            loading="lazy"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-          />
-        ) : (
-          // Placeholder يحافظ على نفس الشكل لحين تحميل الـ iframe
-          <div className="w-[90%] h-[90%] rounded-xl bg-black/40 animate-pulse" />
-        )}
-      </div>
+      {/* لو الرابط غير صالح نعرض رسالة داخل نفس الهيكل بدون إرجاع مبكر */}
+      {isInvalid ? (
+        <div className="text-red-500 text-center">Invalid video URL</div>
+      ) : (
+        <div
+          ref={wrapRef}
+          className="relative w-[95%] md:w-[1771px] h-[220px] sm:h-[400px] md:h-[785px] bg-[#18181899] rounded-md shadow-2xl flex justify-center items-center"
+        >
+          {inView ? (
+            <iframe
+              className="w-[90%] h-[90%] rounded-xl"
+              src={`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1`}
+              title="YouTube video player"
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          ) : (
+            <div className="w-[90%] h-[90%] rounded-xl bg-black/40 animate-pulse" />
+          )}
+        </div>
+      )}
     </section>
   )
 }
