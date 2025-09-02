@@ -71,8 +71,8 @@ module.exports = {
         },
       },
       backgroundImage: {
-        pattern: "url('/bg-pattern.svg')",
-      },
+  pattern: "url('/pattern.png')",
+},
       
       fontFamily: {
         gilroy: ["Gilroy-SemiBold", "sans-serif"],

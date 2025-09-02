@@ -55,7 +55,7 @@ export default function Header() {
 
         <div className="hidden md:flex flex-1 justify-center mt-3">
           <NavigationMenu>
-            <NavigationMenuList className="flex h-[60px] lg:h-[67px] items-center gap-2 rounded-full bg-white px-6 shadow-md">
+            <NavigationMenuList className="flex h-[60px] lg:h-[67px] items-center gap-2 rounded-full bg-white px-6">
               {navItems.map((item) => (
                 <NavigationMenuItem key={item.to}>
                   <NavigationMenuLink asChild>

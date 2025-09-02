@@ -6,10 +6,10 @@ import { Twitter, Linkedin, Facebook, Instagram } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="relative bg-[#A12436] text-white px-6 sm:px-10 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20">
+    <footer className="relative bg-[#A12438] text-white px-6 sm:px-10 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20">
       {/* خلفية الباترن مع overlay */}
       <div className="absolute inset-0">
-        <div className="w-full h-full bg-pattern opacity-20 mix-blend-overlay"></div>
+        <div className="w-full h-full bg-pattern opacity-80 mix-blend-multiply"></div>
       </div>
 
       <div className="relative z-10 max-w-[1280px] mx-auto">
