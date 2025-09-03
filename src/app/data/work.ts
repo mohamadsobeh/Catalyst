@@ -8,51 +8,51 @@ export interface WorkItem {
 
 export const workItems: WorkItem[] = [
   {
-    title: "Storefront",
-    category: "Ecommerce / Clothing",
+    title: "Catalyst Storefront",
+    category: "E-commerce Solution",
     categoryColor: "text-red-500",
     description:
-      "Preview your ad, hit Publish, and watch it go live in seconds. You can even save drafts or boost visibility to reach more buyers.",
+      "A ready-to-launch e-commerce platform for retailers and brands. Includes inventory management, secure payments, and mobile-first design.",
     image: "/work1.jpg",
   },
   {
-    title: "Menu",
-    category: "Restaurants / Food",
+    title: "Catalyst Menu",
+    category: "Restaurant Solution",
     categoryColor: "text-red-500",
     description:
-      "Preview your ad, hit Publish, and watch it go live in seconds. You can even save drafts or boost visibility to reach more buyers.",
+      "An interactive menu and ordering system for restaurants and cafés. Features instant updates, QR-code access, and online ordering options.",
     image: "/work2.jpg",
   },
-  {
-    title: "Storefront",
-    category: "Ecommerce / Clothing",
+   {
+    title: "Catalyst Storefront",
+    category: "E-commerce Solution",
     categoryColor: "text-red-500",
     description:
-      "Preview your ad, hit Publish, and watch it go live in seconds. You can even save drafts or boost visibility to reach more buyers.",
+      "A ready-to-launch e-commerce platform for retailers and brands. Includes inventory management, secure payments, and mobile-first design.",
     image: "/work1.jpg",
   },
   {
-    title: "Menu",
-    category: "Restaurants / Food",
+    title: "Catalyst Menu",
+    category: "Restaurant Solution",
     categoryColor: "text-red-500",
     description:
-      "Preview your ad, hit Publish, and watch it go live in seconds. You can even save drafts or boost visibility to reach more buyers.",
+      "An interactive menu and ordering system for restaurants and cafés. Features instant updates, QR-code access, and online ordering options.",
     image: "/work2.jpg",
   },
-  {
-    title: "Storefront",
-    category: "Ecommerce / Clothing",
+ {
+    title: "Catalyst Storefront",
+    category: "E-commerce Solution",
     categoryColor: "text-red-500",
     description:
-      "Preview your ad, hit Publish, and watch it go live in seconds. You can even save drafts or boost visibility to reach more buyers.",
+      "A ready-to-launch e-commerce platform for retailers and brands. Includes inventory management, secure payments, and mobile-first design.",
     image: "/work1.jpg",
   },
   {
-    title: "Menu",
-    category: "Restaurants / Food",
+    title: "Catalyst Menu",
+    category: "Restaurant Solution",
     categoryColor: "text-red-500",
     description:
-      "Preview your ad, hit Publish, and watch it go live in seconds. You can even save drafts or boost visibility to reach more buyers.",
+      "An interactive menu and ordering system for restaurants and cafés. Features instant updates, QR-code access, and online ordering options.",
     image: "/work2.jpg",
   },
 ];

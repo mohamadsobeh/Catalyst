@@ -18,7 +18,6 @@ const YouTube: React.FC<YouTubeProps> = ({ videoUrl }) => {
   const videoId = getYouTubeId(videoUrl)
   const isInvalid = !videoId
 
-  // Lazy mount للـ iframe عند دخول القسم لنطاق الرؤية
   useEffect(() => {
     if (!wrapRef.current || inView) return
 
@@ -43,7 +42,6 @@ const YouTube: React.FC<YouTubeProps> = ({ videoUrl }) => {
       id="youtube"
       className="w-full flex justify-center items-center  py-12 md:py-20"
     >
-      {/* لو الرابط غير صالح نعرض رسالة داخل نفس الهيكل بدون إرجاع مبكر */}
       {isInvalid ? (
         <div className="text-red-500 text-center">Invalid video URL</div>
       ) : (

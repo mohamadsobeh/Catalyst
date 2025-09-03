@@ -2,11 +2,11 @@ import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 
 import Hero from "./sections/Hero";
-// import About from "./sections/About"
+ import About from "./sections/About"
  import Services from "./sections/Services"
 // import Packages from "./sections/Packages"
-// import Approach from "./sections/Approach"
-// import Team from "./sections/Team"
+ import Approach from "./sections/Approach"
+ import Team from "./sections/Team"
  import Work from "./sections/Work"
 // import ContactCTA from "./sections/ContactCTA"
 import YouTube from "./sections/YouTube";
@@ -22,7 +22,7 @@ export default function Page() {
       </section>
 
       <section id="youtube">
-        <YouTube videoUrl="https://www.youtube.com/watch?v=6fBZBntjEOA&list=RD6fBZBntjEOA&start_radio=1" />
+        <YouTube videoUrl="https://youtu.be/gK6rgZPnfHM?si=r_WD5F_pKMAKHKlB" />
       </section>
 
       <section id="work">
@@ -33,30 +33,29 @@ export default function Page() {
         <Services />
       </section>
 
-      {/* <section id="packages">
-        <Packages />
+      <section id="approach">
+        <Approach />
       </section>
-       <section id="about">
+
+       {/* <section id="packages">
+        <Packages />
+      </section> */}
+
+         <section id="about">
         <About />
       </section>
 
       
 
-      
-
-      <section id="approach">
-        <Approach />
-      </section>
-
-      <section id="team">
+       <section id="team">
         <Team />
       </section>
 
       
 
-      <section id="contact">
+      {/* <section id="contact">
         <ContactCTA />
-      </section>  */}
+      </section>      */}
 
       <Footer />
     </main>

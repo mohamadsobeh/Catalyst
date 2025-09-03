@@ -19,8 +19,8 @@ export default function Hero() {
                      font-gilroySemiBold text-black 
                      leading-[120%] tracking-tight"
         >
-          tech solutions tailored for <br className="hidden sm:block" />
-          your brand’s success.
+          Catalyst Techs: <br className="hidden sm:block" />
+          Powering the Future of Digital Solutions.
         </h1>
 
         {/* زر CTA */}
@@ -36,7 +36,7 @@ export default function Hero() {
                      font-gilroySemiBold text-white 
                      transition-colors hover:bg-[#C73740]"
         >
-          Have A Project In Mind
+          Contact Us
         </Link>
       </div>
     </section>

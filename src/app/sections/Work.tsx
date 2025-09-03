@@ -32,8 +32,7 @@ export default function Work() {
              text-[#AAACAC] max-w-4xl 
              font-ivy"
             >
-              Preview your ad, hit Publish, and watch it go live in seconds. You
-              can even save drafts or boost visibility to reach more buyers.
+             Explore our flagship products built to empower businesses and modernize industries.
             </p>
           </div>
           {/* <span className="text-red-600 text-lg sm:text-xl md:text-2xl font-semibold">

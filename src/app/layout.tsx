@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     title: "Catalyst Technologies",
     description: "Innovative digital solutions for businesses",
     images: ["/og-image.png"],
-    creator: "@catalyst", // غيره لحسابك على تويتر
+    creator: "@catalyst", 
   },
 
   icons: {

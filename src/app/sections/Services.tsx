@@ -12,8 +12,7 @@ export default function Services() {
               Our services
             </h2>
             <p className="mt-4 text-[20px] sm:text-[26px] md:text-[32px] leading-snug max-w-2xl font-ivy font-normal">
-              preview your ad, hit Publish, and watch it go live in seconds. You
-              can even save drafts or boost visibility to reach more buyers.
+              What we offer to enhance and customize your digital experience.
             </p>
           </div>
         </div>

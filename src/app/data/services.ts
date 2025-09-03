@@ -9,24 +9,24 @@ export const services: ServiceItem[] = [
     id: "01",
     title: "MOBILE APPLICATIONS",
     description:
-      "Preview your ad, hit Publish, and watch it go live in seconds. You can even save drafts or boost visibility to reach more buyers.",
+      "High-performance iOS and Android apps tailored for businesses and startups.",
   },
   {
     id: "02",
-    title: "MOBILE APPLICATIONS",
+    title: "Web Development",
     description:
-      "Preview your ad, hit Publish, and watch it go live in seconds. You can even save drafts or boost visibility to reach more buyers.",
+     "Responsive and secure websites designed for growth and conversion.",
   },
   {
     id: "03",
-    title: "MOBILE APPLICATIONS",
+    title: "Custom Software Solutions",
     description:
-      "Preview your ad, hit Publish, and watch it go live in seconds. You can even save drafts or boost visibility to reach more buyers.",
+      "Tailored ERP, CRM, and platforms to match unique business needs.",
   },
   {
     id: "04",
-    title: "MOBILE APPLICATIONS",
+    title: "UI/UX Design",
     description:
-      "Preview your ad, hit Publish, and watch it go live in seconds. You can even save drafts or boost visibility to reach more buyers.",
+      "User-centered designs that balance beauty and usability.",
   },
 ];

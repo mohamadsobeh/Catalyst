@@ -18,7 +18,7 @@ export default function Footer() {
           
           <div>
             <h2 className="text-[22px] sm:text-[26px] md:text-[32px] font-gilroyMedium leading-[1.4] text-white">
-              Your next success takes one <br /> hello
+              Your next success starts here <br /> let’s build it together.
             </h2>
             <p className="mt-6 text-[20px] sm:text-[24px] md:text-[28px] font-gilroySemiBold text-black tracking-tight">
               Support@catalysttechs.com
@@ -86,7 +86,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="https://linkedin.com"
+                  href="https://linkedin.com/company/catalyst-techs/"
                   target="_blank"
                   className="flex items-center gap-2 hover:text-white justify-start"
                 >
@@ -104,7 +104,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="https://instagram.com"
+                  href="https://instagram.com/catalyst_techs"
                   target="_blank"
                   className="flex items-center gap-2 hover:text-white justify-start"
                 >
@@ -116,8 +116,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 font-gilroyMedium text-xs text-center sm:text-left text-white/70">
-          © {new Date().getFullYear()} Catalyst Technologies - All Rights
-          Reserved.
+          © {new Date().getFullYear()} Catalyst Technologies — Building Tomorrow’s Software Today.
         </div>
       </div>
     </footer>
