@@ -19,6 +19,14 @@ import {
 import { useForm, Controller } from "react-hook-form";
 import { useState } from "react";
 
+type FormData = {
+  name: string;
+  email: string;
+  industry: string;
+  product: string;
+  message: string;
+};
+
 export function ContactDialog({ children }: { children: React.ReactNode }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<"success" | "error" | null>(null);
@@ -29,9 +37,9 @@ export function ContactDialog({ children }: { children: React.ReactNode }) {
     control,
     reset,
     formState: { errors },
-  } = useForm();
+  } = useForm<FormData>();
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
     try {
       const response = await fetch("https://formspree.io/f/xovnykza", {
@@ -104,8 +112,8 @@ export function ContactDialog({ children }: { children: React.ReactNode }) {
                              focus:outline-none focus:ring-0 focus:border-[#6D6D6D]
                              placeholder:text-[#9D9797]"
                 />
-                {errors.name && (
-                  <p className="text-red-500 text-sm">{errors.name.message as string}</p>
+                {errors.name?.message && (
+                  <p className="text-red-500 text-sm">{String(errors.name.message)}</p>
                 )}
               </div>
 
@@ -130,8 +138,8 @@ export function ContactDialog({ children }: { children: React.ReactNode }) {
                              focus:outline-none focus:ring-0 focus:border-[#6D6D6D]
                              placeholder:text-[#9D9797]"
                 />
-                {errors.email && (
-                  <p className="text-red-500 text-sm">{errors.email.message as string}</p>
+                {errors.email?.message && (
+                  <p className="text-red-500 text-sm">{String(errors.email.message)}</p>
                 )}
               </div>
             </div>
@@ -155,15 +163,15 @@ export function ContactDialog({ children }: { children: React.ReactNode }) {
                       <SelectValue placeholder="industry" />
                     </SelectTrigger>
                     <SelectContent className="rounded-[16px] border border-[#6D6D6D] bg-[#E9E9E9]">
-                      <SelectItem value="tech">tech</SelectItem>
-                      <SelectItem value="finance">industry1</SelectItem>
-                      <SelectItem value="health">industry2</SelectItem>
+                      <SelectItem value="tech">Tech</SelectItem>
+                      <SelectItem value="finance">Finance</SelectItem>
+                      <SelectItem value="health">Health</SelectItem>
                     </SelectContent>
                   </Select>
                 )}
               />
-              {errors.industry && (
-                <p className="text-red-500 text-sm">{errors.industry.message as string}</p>
+              {errors.industry?.message && (
+                <p className="text-red-500 text-sm">{String(errors.industry.message)}</p>
               )}
             </div>
 
@@ -193,8 +201,8 @@ export function ContactDialog({ children }: { children: React.ReactNode }) {
                   </label>
                 ))}
               </div>
-              {errors.product && (
-                <p className="text-red-500 text-sm">{errors.product.message as string}</p>
+              {errors.product?.message && (
+                <p className="text-red-500 text-sm">{String(errors.product.message)}</p>
               )}
             </div>
 
@@ -212,8 +220,8 @@ export function ContactDialog({ children }: { children: React.ReactNode }) {
                            text-[16px] sm:text-[20px] font-gilroyMedium text-[#5C5C5C] 
                            placeholder:text-[#9D9797] focus:outline-none transition"
               />
-              {errors.message && (
-                <p className="text-red-500 text-sm">{errors.message.message as string}</p>
+              {errors.message?.message && (
+                <p className="text-red-500 text-sm">{String(errors.message.message)}</p>
               )}
             </div>
 
@@ -233,12 +241,12 @@ export function ContactDialog({ children }: { children: React.ReactNode }) {
             {/* Status Message */}
             {status === "success" && (
               <p className="text-gray-900 text-sm pt-2">
-                 Message sent successfully!
+                Message sent successfully!
               </p>
             )}
             {status === "error" && (
               <p className="text-red-600 text-sm pt-2">
-                 Failed to send. Please try again.
+                Failed to send. Please try again.
               </p>
             )}
           </div>
