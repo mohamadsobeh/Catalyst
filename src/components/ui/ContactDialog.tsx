@@ -39,7 +39,8 @@ export function ContactDialog({ children }: { children: React.ReactNode }) {
     formState: { errors },
   } = useForm<FormData>();
 
-  const onSubmit = async (data: FormData) => {
+  // ✅ no any
+  const onSubmit = async (data: FormData): Promise<void> => {
     setIsSubmitting(true);
     try {
       const response = await fetch("https://formspree.io/f/xovnykza", {
@@ -241,12 +242,12 @@ export function ContactDialog({ children }: { children: React.ReactNode }) {
             {/* Status Message */}
             {status === "success" && (
               <p className="text-gray-900 text-sm pt-2">
-                Message sent successfully!
+                ✅ Message sent successfully!
               </p>
             )}
             {status === "error" && (
               <p className="text-red-600 text-sm pt-2">
-                Failed to send. Please try again.
+                ❌ Failed to send. Please try again.
               </p>
             )}
           </div>

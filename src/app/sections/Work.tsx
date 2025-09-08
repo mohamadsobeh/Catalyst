@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
-import { workItems, WorkItem } from "@/app/data/work";
+import { workItems } from "@/app/data/work";
 
 export default function Work() {
   const [showAll, setShowAll] = useState(false);
