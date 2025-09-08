@@ -8,8 +8,9 @@ import Hero from "./sections/Hero";
  import Approach from "./sections/Approach"
  import Team from "./sections/Team"
  import Work from "./sections/Work"
+import Video from "./sections/Video";
 // import ContactCTA from "./sections/ContactCTA"
-import YouTube from "./sections/YouTube";
+
 
 export default function Page() {
   return (
@@ -21,8 +22,8 @@ export default function Page() {
         <Hero />
       </section>
 
-      <section id="youtube">
-        <YouTube videoUrl="https://youtu.be/gK6rgZPnfHM?si=r_WD5F_pKMAKHKlB" />
+      <section id="video">
+        <Video/>
       </section>
 
       <section id="work">

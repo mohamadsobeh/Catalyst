@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { ContactDialog } from "@/components/ui/ContactDialog";
 
 export default function Hero() {
   return (
@@ -23,21 +23,22 @@ export default function Hero() {
           Powering the Future of Digital Solutions.
         </h1>
 
-        {/* زر CTA */}
-        <Link
-          href="#contact"
-          className="mt-6 sm:mt-8 inline-flex
-                     h-[50px] sm:h-[60px] md:h-[75px] lg:h-[90px]
-                     w-[200px] sm:w-[250px] md:w-[320px] lg:w-[376px]
-                     items-center justify-center
-                     rounded-full 
-                     bg-[#DC5758] 
-                     text-sm sm:text-lg md:text-xl lg:text-[24px] 
-                     font-gilroySemiBold text-white 
-                     transition-colors hover:bg-[#C73740]"
-        >
-          Contact Us
-        </Link>
+        {/* زر CTA مربوط بالديالوغ */}
+        <ContactDialog>
+          <button
+            className="mt-6 sm:mt-8 inline-flex
+                       h-[50px] sm:h-[60px] md:h-[75px] lg:h-[90px]
+                       w-[200px] sm:w-[250px] md:w-[320px] lg:w-[376px]
+                       items-center justify-center
+                       rounded-full 
+                       bg-[#DC5758] 
+                       text-sm sm:text-lg md:text-xl lg:text-[24px] 
+                       font-gilroySemiBold text-white 
+                       transition-colors hover:bg-[#C73740]"
+          >
+            Contact Us
+          </button>
+        </ContactDialog>
       </div>
     </section>
   );
