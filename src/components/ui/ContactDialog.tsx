@@ -17,13 +17,13 @@ import {
 } from "@/components/ui/select";
 
 import { useForm, Controller } from "react-hook-form";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type FormData = {
   name: string;
   email: string;
   industry: string;
-  product: string;
+  product: string[]; 
   message: string;
 };
 
@@ -61,6 +61,15 @@ export function ContactDialog({ children }: { children: React.ReactNode }) {
       setIsSubmitting(false);
     }
   };
+  
+  useEffect(() => {
+  if (status) {
+    const timer = setTimeout(() => {
+      setStatus(null);
+    }, 4000); // يختفي بعد 4 ثواني
+    return () => clearTimeout(timer);
+  }
+}, [status]);
 
   return (
     <Dialog>
@@ -191,9 +200,11 @@ export function ContactDialog({ children }: { children: React.ReactNode }) {
                       {product}
                     </span>
                     <input
-                      type="radio"
+                      type="checkbox"
                       value={product}
-                      {...register("product", { required: "Product type is required" })}
+                      {...register("product", {   validate: (value) =>
+              value.length > 0 || "Product type is required",
+          })}
                       className="w-4 h-4 sm:w-5 sm:h-5 rounded-full border border-[#6D6D6D] checked:border-[#C73740] appearance-none 
                                flex items-center justify-center cursor-pointer
                                checked:before:content-[''] checked:before:block checked:before:w-2 sm:checked:before:w-3 checked:before:h-2 sm:checked:before:h-3 
@@ -239,17 +250,25 @@ export function ContactDialog({ children }: { children: React.ReactNode }) {
               {isSubmitting ? "Sending..." : "send message"}
             </button>
 
-            {/* Status Message */}
-            {status === "success" && (
-              <p className="text-gray-900 text-sm pt-2">
-                ✅ Message sent successfully!
-              </p>
-            )}
-            {status === "error" && (
-              <p className="text-red-600 text-sm pt-2">
-                ❌ Failed to send. Please try again.
-              </p>
-            )}
+           
+           {/* Status Message */}
+{status && (
+  <div
+    className={`
+      mt-4 px-4 py-3 rounded-[12px] text-sm font-gilroyMedium shadow-md w-fit
+      transition-opacity duration-500
+      ${status === "success" 
+        ? "bg-[#F7D6D4] text-[#A02436] border border-[#A02436]" 
+        : "bg-[#FFE5E7] text-[#C73740] border border-[#C73740]"}
+    `}
+  >
+    {status === "success"
+      ? " Message sent successfully!"
+      : " Failed to send. Please try again."}
+  </div>
+)}
+
+
           </div>
         </form>
       </DialogContent>

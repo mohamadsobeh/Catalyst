@@ -4,7 +4,7 @@ import Footer from "./components/layout/Footer";
 import Hero from "./sections/Hero";
  import About from "./sections/About"
  import Services from "./sections/Services"
-// import Packages from "./sections/Packages"
+ import Packages from "./sections/Packages"
  import Approach from "./sections/Approach"
 //  import Team from "./sections/Team"
  import Work from "./sections/Work"
@@ -33,15 +33,15 @@ export default function Page() {
       <section id="services">
         <Services />
       </section>
+      <section id="packages">
+        <Packages />
+      </section> 
 
       <section id="approach">
         <Approach />
       </section>
 
-       {/* <section id="packages">
-        <Packages />
-      </section> */}
-
+        
          <section id="about">
         <About />
       </section>

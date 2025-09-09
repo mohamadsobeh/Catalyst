@@ -8,12 +8,12 @@ export interface WorkItem {
 
 export const workItems: WorkItem[] = [
   {
-    title: "Catalyst Storefront",
-    category: "E-commerce Solution",
+    title: "Msar",
+    category: "Cars",
     categoryColor: "text-red-500",
     description:
-      "A ready-to-launch e-commerce platform for retailers and brands. Includes inventory management, secure payments, and mobile-first design.",
-    image: "/work1.jpg",
+      "preview your ad, hit Publish, and watch it go live in seconds.You can even save drafts or boost visibility to reach more buyers.",
+    image: "/work3.jpg",
   },
   {
     title: "Catalyst Menu",
@@ -24,20 +24,20 @@ export const workItems: WorkItem[] = [
     image: "/work2.jpg",
   },
    {
-    title: "Catalyst Storefront",
-    category: "E-commerce Solution",
+    title: "Doctorna",
+    category: "HealthTech/Clinic Management",
     categoryColor: "text-red-500",
     description:
-      "A ready-to-launch e-commerce platform for retailers and brands. Includes inventory management, secure payments, and mobile-first design.",
-    image: "/work1.jpg",
+      "preview your ad, hit Publish, and watch it go live in seconds.You can even save drafts or boost visibility to reach more buyers.",
+    image: "/work4.jpg",
   },
   {
-    title: "Catalyst Menu",
-    category: "Restaurant Solution",
+    title: "Talab Apps",
+    category: "transportation",
     categoryColor: "text-red-500",
     description:
-      "An interactive menu and ordering system for restaurants and cafés. Features instant updates, QR-code access, and online ordering options.",
-    image: "/work2.jpg",
+      "preview your ad, hit Publish, and watch it go live in seconds.You can even save drafts or boost visibility to reach more buyers.",
+    image: "/work5.jpg",
   },
  {
     title: "Catalyst Storefront",

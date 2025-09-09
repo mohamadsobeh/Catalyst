@@ -1,127 +1,213 @@
-// "use client";
+"use client";
 
-// import Image from "next/image";
-// import { Card, CardContent } from "@/components/ui/card";
-// import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import Image from "next/image";
+import { useState } from "react";
+import { PACKAGES } from "@/app/data/packages";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
-// export default function Packages() {
-//   return (
-//     <section className="relative w-full bg-[#1E1C1B] text-white py-20 px-6 sm:px-10 md:px-16 lg:px-24 overflow-hidden">
-//       <div className="relative max-w-screen-xl mx-auto">
-//         {/* Header */}
-//         <div className="flex items-start justify-between mb-12 relative">
-//           <div>
-//             <h2 className="text-[28px] sm:text-[36px] md:text-[45px] font-gilroySemiBold text-[#545454]">
-//               Our packages
-//             </h2>
-//             <p className="mt-4 text-[20px] sm:text-[26px] md:text-[32px] leading-snug max-w-2xl font-ivy font-normal">
-//               preview your ad, hit Publish, and watch it go live in seconds. You
-//               can even save drafts or boost visibility to reach more buyers.
-//             </p>
-//           </div>
-//         </div>
+export default function Packages() {
+  const [activeTab, setActiveTab] = useState("starter");
+  const activePackage = PACKAGES.items.find((pkg) => pkg.id === activeTab)!;
 
-//         {/* Tabs */}
-//         <Tabs defaultValue="starter" className="w-full">
-//           <Card className="w-full bg-white bg-[url('/pattern.png')] bg-repeat border border-gray-200 rounded-[22px] p-0 flex flex-col gap-0 overflow-hidden">
-            
-//             {/* Tabs List */}
-//             <TabsList className="flex w-full mb-8 bg-transparent border-none">
-//               <TabsTrigger value="custom" className="clip-left font-gilroySemiBold">
-//                 custom pack
-//               </TabsTrigger>
-//               <TabsTrigger value="business" className="clip-middle font-gilroy">
-//                 business pack
-//               </TabsTrigger>
-//               <TabsTrigger value="starter" className="clip-right font-gilroy">
-//                 starter pack
-//               </TabsTrigger>
-//             </TabsList>
+  return (
+    <section className="relative w-full bg-[#1E1C1B] text-white py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-12 lg:px-24 overflow-hidden">
+      <div className="relative max-w-screen-xl mx-auto">
+        {/* Header */}
+        <div className="mb-8 sm:mb-12">
+          <h2 className="text-[24px] sm:text-[32px] md:text-[45px] font-gilroySemiBold text-[#545454]">
+            Our packages
+          </h2>
+          <p className="mt-3 sm:mt-4 text-[16px] sm:text-[20px] md:text-[28px] lg:text-[32px] leading-snug max-w-2xl font-ivy font-normal">
+            {PACKAGES.subheadline}
+          </p>
+        </div>
 
-//             {/* Custom Pack Content */}
-//             <TabsContent value="custom" className="p-10 flex flex-col md:flex-row gap-10">
-//               <div className="flex-1 flex items-center justify-center">
-//                 <Image src="/packges.svg" alt="Custom Package" width={350} height={350} className="object-contain" />
-//               </div>
-//               <CardContent className="flex-1 p-0">
-//                 <h3 className="text-[22px] font-gilroySemiBold text-[#C73740] mb-4">custom pack</h3>
-//                 <p className="text-[#B0B0B0] text-[14px] font-ivy mb-6">
-//                   Tailored solutions designed for your unique business needs.
-//                 </p>
-//                 <h4 className="text-black uppercase mb-4 font-gilroySemiBold text-[14px]">DETAILS</h4>
-//                 <ul className="space-y-3 text-[14px] text-black">
-//                   <li>✔ Fully Customized Website</li>
-//                   <li>✔ Advanced Features & Integrations</li>
-//                   <li>✔ Premium Analytics & Reporting</li>
-//                   <li>✔ 3-Month Technical Support</li>
-//                 </ul>
-//                 <div className="mt-6 flex items-center gap-8 text-sm font-gilroy">
-//                   <p><span className="text-[#C73740] font-semibold">$ Price</span> 500$</p>
-//                   <p><span className="text-[#C73740] font-semibold">⏱ Timeline</span> 12 weeks</p>
-//                 </div>
-//                 <button className="mt-6 text-sm font-gilroySemiBold text-black border-b-2 border-[#C73740] hover:text-[#C73740]">
-//                   LET’S DISCUSS YOUR PROJECT
-//                 </button>
-//               </CardContent>
-//             </TabsContent>
+        {/* Tabs List */}
+        <div className="flex w-full border-b border-white overflow-x-auto sm:overflow-visible">
+          {PACKAGES.items.map((pkg, index) => (
+            <button
+              key={pkg.id}
+              onClick={() => setActiveTab(pkg.id)}
+              className={`
+                flex-shrink-0 sm:flex-1 
+                h-[54px] sm:h-[64px] md:h-[78px] 
+                px-3 sm:px-5 md:px-8 
+                flex items-center justify-center 
+                font-gilroySemiBold 
+                text-[14px] sm:text-[18px] md:text-[22px] 
+                transition-all
+                ${
+                  activeTab === pkg.id
+                    ? "bg-white text-[#C73740]"
+                    : "bg-[#1E1C1B] text-white border border-white/80"
+                }
+                ${index === 0 ? "rounded-tl-[14px] sm:rounded-tl-[22px]" : ""}
+                ${
+                  index === PACKAGES.items.length - 1
+                    ? "rounded-tr-[14px] sm:rounded-tr-[22px]"
+                    : ""
+                }
+              `}
+            >
+              {pkg.title}
+            </button>
+          ))}
+        </div>
 
-//             {/* Business Pack Content */}
-//             <TabsContent value="business" className="p-10 flex flex-col md:flex-row gap-10">
-//               <div className="flex-1 flex items-center justify-center">
-//                 <Image src="/packges.svg" alt="Business Package" width={350} height={350} className="object-contain" />
-//               </div>
-//               <CardContent className="flex-1 p-0">
-//                 <h3 className="text-[22px] font-gilroySemiBold text-[#C73740] mb-4">business pack</h3>
-//                 <p className="text-[#B0B0B0] text-[14px] font-ivy mb-6">
-//                   Professional package ideal for startups and growing businesses.
-//                 </p>
-//                 <h4 className="text-black uppercase mb-4 font-gilroySemiBold text-[14px]">DETAILS</h4>
-//                 <ul className="space-y-3 text-[14px] text-black">
-//                   <li>✔ Multi-page Website Development</li>
-//                   <li>✔ Responsive Design (Mobile & Desktop)</li>
-//                   <li>✔ Google Analytics & SEO Setup</li>
-//                   <li>✔ 2-Month Technical Support</li>
-//                 </ul>
-//                 <div className="mt-6 flex items-center gap-8 text-sm font-gilroy">
-//                   <p><span className="text-[#C73740] font-semibold">$ Price</span> 350$</p>
-//                   <p><span className="text-[#C73740] font-semibold">⏱ Timeline</span> 8 weeks</p>
-//                 </div>
-//                 <button className="mt-6 text-sm font-gilroySemiBold text-black border-b-2 border-[#C73740] hover:text-[#C73740]">
-//                   LET’S DISCUSS YOUR PROJECT
-//                 </button>
-//               </CardContent>
-//             </TabsContent>
+        {/* Card */}
+        <div className="w-full bg-[#FFFFFF] bg-[url('/pattern.png')] bg-repeat">
+          <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-6 sm:gap-10 px-4 sm:px-6 md:px-12 py-8 sm:py-10 md:py-12">
+            {/* Left Image */}
+            <div className="flex items-center justify-center">
+              <Image
+                src="/packges.svg"
+                alt={`${activePackage.title} visual`}
+                width={372}
+                height={443}
+                className="w-[240px] sm:w-[320px] md:w-[372px] h-auto object-contain"
+              />
+            </div>
 
-//             {/* Starter Pack Content */}
-//             <TabsContent value="starter" className="p-10 flex flex-col md:flex-row gap-10">
-//               <div className="flex-1 flex items-center justify-center">
-//                 <Image src="/packges.svg" alt="Starter Package" width={350} height={350} className="object-contain" />
-//               </div>
-//               <CardContent className="flex-1 p-0">
-//                 <h3 className="text-[22px] font-gilroySemiBold text-[#C73740] mb-4">starter pack</h3>
-//                 <p className="text-[#B0B0B0] text-[14px] font-ivy mb-6">
-//                   preview your ad, hit Publish, and watch it go live in seconds.
-//                   You can even save drafts or boost visibility to reach more buyers.
-//                 </p>
-//                 <h4 className="text-black uppercase mb-4 font-gilroySemiBold text-[14px]">DETAILS</h4>
-//                 <ul className="space-y-3 text-[14px] text-black">
-//                   <li>✔ Simple Website Development (Landing Page or Portfolio)</li>
-//                   <li>✔ Responsive Design (Mobile & Desktop)</li>
-//                   <li>✔ Basic Google Analytics Integration</li>
-//                   <li>✔ 1-Month Technical Support</li>
-//                 </ul>
-//                 <div className="mt-6 flex items-center gap-8 text-sm font-gilroy">
-//                   <p><span className="text-[#C73740] font-semibold">$ Price</span> 200$</p>
-//                   <p><span className="text-[#C73740] font-semibold">⏱ Timeline</span> 6 weeks</p>
-//                 </div>
-//                 <button className="mt-6 text-sm font-gilroySemiBold text-black border-b-2 border-[#C73740] hover:text-[#C73740]">
-//                   LET’S DISCUSS YOUR PROJECT
-//                 </button>
-//               </CardContent>
-//             </TabsContent>
-//           </Card>
-//         </Tabs>
-//       </div>
-//     </section>
-//   );
-// }
+            {/* Right Content */}
+            <div
+              className="w-full border-[2px] sm:border-[3px] border-[#E7E7E7]/65 rounded-[16px] sm:rounded-[22px]
+                 px-4 sm:px-6 md:px-[35px] pt-6 sm:pt-8 md:pt-[35px] pb-6 sm:pb-8 md:pb-[35px] flex flex-col justify-between"
+            >
+              {/* Title + Tagline */}
+              <div className="w-full max-w-[531px] flex flex-col gap-4 sm:gap-[31px] mb-4 sm:mb-6">
+                <h3
+                  className="text-[#C73740] font-gilroySemiBold 
+               text-[22px] sm:text-[28px] md:text-[40px] leading-tight capitalize"
+                >
+                  {activePackage.title}
+                </h3>
+                <p
+                  className="text-[#AAACAC] font-ivy 
+               text-[16px] sm:text-[20px] md:text-[24px] leading-snug"
+                >
+                  {activePackage.tagline}
+                </p>
+              </div>
+
+              {/* Details */}
+              <div className="w-full max-w-[599px] flex flex-col gap-4 sm:gap-[22px] mb-6 sm:mb-8">
+                <h4 className="text-[#706A63] uppercase font-gilroySemiBold text-[16px] sm:text-[20px] md:text-[24px] leading-snug">
+                  DETAILS
+                </h4>
+                <ul className="space-y-3 sm:space-y-[15px] text-black">
+                  {activePackage.details.map((detail, idx) => (
+                    <li key={idx} className="flex items-center gap-2 sm:gap-[10px]">
+                      <div className="flex items-center justify-center bg-[#C73740] w-[22px] h-[22px] sm:w-[26px] sm:h-[26px] md:w-[30px] md:h-[33px] rounded-[4px] shrink-0">
+                        <svg
+                          width="14"
+                          height="10"
+                          viewBox="0 0 16 11"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M1 5.5L5.5 10L15 1"
+                            stroke="#FFFFFF"
+                            strokeWidth="2"
+                          />
+                        </svg>
+                      </div>
+                      <span className="font-gilroyMedium text-[14px] sm:text-[18px] md:text-[20px] leading-snug text-[#191919] uppercase">
+                        {detail}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Price + Timeline + Button */}
+              <div className="w-full flex flex-col gap-6 sm:gap-[32px]">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-[32px] font-ivy">
+                  <p className="flex items-center gap-2 sm:gap-[9px] text-[16px] sm:text-[20px] md:text-[24px] font-semibold leading-snug">
+                    <span className="text-[#C73740]">$</span>
+                    <span className="text-[#C73740]">Price</span>
+                    <span className="text-black">{activePackage.price}</span>
+                  </p>
+                  <p className="flex items-center gap-2 text-[16px] sm:text-[20px] md:text-[24px] font-semibold leading-snug">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="#C73740"
+                      strokeWidth="2"
+                    >
+                      <circle cx="12" cy="12" r="9" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 7v5l3 2" />
+                    </svg>
+                    <span className="text-[#C73740]">Timeline</span>
+                    <span className="text-black">{activePackage.timeline}</span>
+                  </p>
+                </div>
+
+                {/* Dialog Trigger */}
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <button
+                      className="w-full sm:w-[300px] md:w-[427px] h-[54px] sm:h-[60px] md:h-[68px] 
+                      flex items-center justify-center text-[16px] sm:text-[20px] md:text-[24px] 
+                      font-gilroySemiBold uppercase text-black border-b-2 border-[#C73740] 
+                      hover:text-[#C73740] transition"
+                    >
+                      LET’S DISCUSS YOUR PROJECT
+                    </button>
+                  </DialogTrigger>
+                  <DialogContent className="w-[90%] sm:w-[80%] md:max-w-[748px] rounded-xl border border-[#E7E7E7] bg-[#1E1C1B] px-4 sm:px-6 md:px-[35px] py-6 sm:py-8 md:py-[35px]">
+                    <DialogHeader>
+                      <DialogTitle className="text-[#C73740] font-gilroyMedium text-[20px] sm:text-[28px] md:text-[40px] leading-snug">
+                        {activePackage.title}
+                      </DialogTitle>
+                      <DialogDescription className="text-[#AAACAC] font-ivy text-[16px] sm:text-[20px] md:text-[24px] leading-snug">
+                        {activePackage.tagline}
+                      </DialogDescription>
+                    </DialogHeader>
+
+                    {/* Details in Dialog */}
+                    <div className="mt-6 space-y-4 sm:space-y-[22px]">
+                      <h4 className="text-[#706A63] uppercase font-gilroySemiBold text-[16px] sm:text-[20px] md:text-[24px]">
+                        USE CASES
+                      </h4>
+                      <ul className="space-y-3 sm:space-y-[21px] text-black">
+                        {activePackage.details.map((detail, idx) => (
+                          <li key={idx} className="flex items-center gap-2 sm:gap-[10px]">
+                            <div className="flex items-center justify-center bg-[#C73740] w-[22px] h-[22px] sm:w-[26px] sm:h-[26px] md:w-[30px] md:h-[33px] rounded-[4px] shrink-0">
+                              <svg
+                                width="14"
+                                height="10"
+                                viewBox="0 0 16 11"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path d="M1 5.5L5.5 10L15 1" stroke="#FFFFFF" strokeWidth="2" />
+                              </svg>
+                            </div>
+                            <span className="font-gilroyMedium text-[14px] sm:text-[18px] md:text-[20px] text-[#191919] uppercase">
+                              {detail}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </DialogContent>
+                </Dialog>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

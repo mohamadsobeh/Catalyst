@@ -71,7 +71,7 @@ export default function Footer() {
               Social Media
             </h3>
             <ul className="flex flex-col gap-2 text-sm text-white/90">
-              <li>
+              {/* <li>
                 <a
                   href="https://twitter.com"
                   target="_blank"
@@ -79,7 +79,7 @@ export default function Footer() {
                 >
                   <Twitter size={16} /> Twitter
                 </a>
-              </li>
+              </li> */}
               <li>
                 <a
                   href="https://linkedin.com/company/catalyst-techs/"
@@ -89,7 +89,7 @@ export default function Footer() {
                   <Linkedin size={16} /> LinkedIn
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a
                   href="https://facebook.com"
                   target="_blank"
@@ -97,7 +97,7 @@ export default function Footer() {
                 >
                   <Facebook size={16} /> Facebook
                 </a>
-              </li>
+              </li> */}
               <li>
                 <a
                   href="https://instagram.com/catalyst_techs"
