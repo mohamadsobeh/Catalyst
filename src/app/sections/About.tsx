@@ -21,12 +21,15 @@ export default function About() {
       { threshold: 0.5 }
     );
 
-    refs.current.forEach((ref) => {
+    // ✅ اعمل نسخة محلية من العناصر
+    const elements = [...refs.current];
+
+    elements.forEach((ref) => {
       if (ref) observer.observe(ref);
     });
 
     return () => {
-      refs.current.forEach((ref) => {
+      elements.forEach((ref) => {
         if (ref) observer.unobserve(ref);
       });
     };

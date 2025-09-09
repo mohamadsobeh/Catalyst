@@ -39,7 +39,7 @@ export function ContactDialog({ children }: { children: React.ReactNode }) {
     formState: { errors },
   } = useForm<FormData>();
 
-  // ✅ no any
+  
   const onSubmit = async (data: FormData): Promise<void> => {
     setIsSubmitting(true);
     try {
