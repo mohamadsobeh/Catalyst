@@ -1,6 +1,7 @@
 "use client";
 
 import { ContactDialog } from "@/components/ui/ContactDialog";
+import Gif from "./gif";
 
 export default function Hero() {
   return (
@@ -10,12 +11,13 @@ export default function Hero() {
                  flex-col items-start justify-center 
                  px-4 sm:px-8 md:px-16 lg:px-24 
                  py-10 sm:py-16 md:py-20 
-                 bg-catalyst-bg bg-pattern bg-repeat"
+                 bg-catalyst-bg bg-pattern bg-repeat
+                 overflow-hidden"
     >
       <div className="max-w-[1191px] w-full">
         {/* العنوان */}
         <h1
-          className="text-[24px] sm:text-[32px] md:text-[44px] lg:text-[64px] 
+          className="text-[24px] sm:text-[32px] md:text-[44px] lg:text-[60px] 
                      font-gilroySemiBold text-black 
                      leading-[120%] tracking-tight"
         >
@@ -39,6 +41,11 @@ export default function Hero() {
             Contact Us
           </button>
         </ContactDialog>
+      </div>
+
+      {/* Gif يظهر فقط على الديسكتوب في الجهة اليمنى */}
+      <div className="hidden lg:block absolute top-1/2 right-24 -translate-y-1/2">
+        <Gif />
       </div>
     </section>
   );

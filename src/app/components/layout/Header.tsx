@@ -33,14 +33,14 @@ export default function Header() {
 
   return (
     <header className="sticky top-8 z-50 w-full bg-catalyst-bg bg-pattern bg-repeat backdrop-blur">
-      <div className="container flex items-start justify-between">
+      <div className="container flex items-center justify-between">
         {/* Logo */}
         <ScrollLink
           to="hero"
           smooth
           duration={500}
           offset={-80}
-          className="flex items-center gap-[6px] mt-1 cursor-pointer"
+          className="flex items-center gap-[6px] cursor-pointer"
         >
           <Image
             src="/logo.svg"
@@ -55,7 +55,7 @@ export default function Header() {
         </ScrollLink>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex flex-1 justify-center mt-3">
+        <div className="hidden md:flex flex-1 justify-center">
           <NavigationMenu>
             <NavigationMenuList className="flex h-[60px] lg:h-[67px] items-center gap-2 rounded-full bg-white px-6">
               {navItems.map((item) => (
@@ -95,14 +95,6 @@ export default function Header() {
             </NavigationMenuList>
           </NavigationMenu>
         </div>
-
-        {/* Email link (desktop only) */}
-        <a
-          href="mailto:hello@example.com"
-          className="hidden md:flex mt-3 text-[20px] font-gilroySemiBold text-catalyst-text"
-        >
-          Email us
-        </a>
 
         {/* Mobile Navigation */}
         <div className="md:hidden">

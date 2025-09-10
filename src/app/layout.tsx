@@ -33,17 +33,9 @@ export const metadata: Metadata = {
     type: "website",
   },
 
-  twitter: {
-    card: "summary_large_image",
-    title: "Catalyst Technologies",
-    description: "Innovative digital solutions for businesses",
-    images: ["/og-image.png"],
-    creator: "@catalyst", 
-  },
-
   icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    icon: "/icon.png",              
+    apple: "/apple-touch-icon.png",  
   },
 };
 
