@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Twitter, Linkedin, Facebook, Instagram } from "lucide-react";
+import { Linkedin, Instagram } from "lucide-react";
 import { ContactDialog } from "@/components/ui/ContactDialog";
 
 export default function Footer() {

@@ -3,31 +3,36 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ContactDialog } from "@/components/ui/ContactDialog";
+import type { PackageType } from "@/app/data/packages";
 
+// Animation Variants
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0, transition: { duration: 0.6, delay } },
   exit: { opacity: 0, y: 20, transition: { duration: 0.3 } },
 });
 
- const slideInLeft = {
-    initial: { opacity: 0, x: -40 },
-    animate: { opacity: 1, x: 0, transition: { duration: 0.6 } },
-    exit: { opacity: 0, x: -40, transition: { duration: 0.3 } },
-  };
+const slideInLeft = {
+  initial: { opacity: 0, x: -40 },
+  animate: { opacity: 1, x: 0, transition: { duration: 0.6 } },
+  exit: { opacity: 0, x: -40, transition: { duration: 0.3 } },
+};
 
-  const slideInRight = {
-    initial: { opacity: 0, x: 40 },
-    animate: { opacity: 1, x: 0, transition: { duration: 0.6 } },
-    exit: { opacity: 0, x: 40, transition: { duration: 0.3 } },
-  };
+const slideInRight = {
+  initial: { opacity: 0, x: 40 },
+  animate: { opacity: 1, x: 0, transition: { duration: 0.6 } },
+  exit: { opacity: 0, x: 40, transition: { duration: 0.3 } },
+};
 
-
-export default function PackageCard({ activePackage }: { activePackage: any }) {
+export default function PackageCard({ activePackage }: { activePackage: PackageType }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-6 sm:gap-10 px-4 sm:px-6 md:px-12 py-8 sm:py-10 md:py-12">
       {/* Left Image */}
-      <motion.div key={`img-${activePackage.id}`} {...slideInLeft} className="flex items-center justify-center">
+      <motion.div
+        key={`img-${activePackage.id}`}
+        {...slideInLeft}
+        className="flex items-center justify-center"
+      >
         <Image
           src="/packges.svg"
           alt={`${activePackage.title} visual`}
@@ -46,25 +51,48 @@ export default function PackageCard({ activePackage }: { activePackage: any }) {
       >
         {/* Title + Tagline */}
         <div className="w-full max-w-[531px] flex flex-col gap-4 sm:gap-[31px] mb-4 sm:mb-6">
-          <motion.h3 {...fadeUp(0.05)} className="text-[#C73740] font-gilroySemiBold text-[22px] sm:text-[28px] md:text-[40px] leading-tight capitalize">
+          <motion.h3
+            {...fadeUp(0.05)}
+            className="text-[#C73740] font-gilroySemiBold text-[22px] sm:text-[28px] md:text-[40px] leading-tight capitalize"
+          >
             {activePackage.title}
           </motion.h3>
-          <motion.p {...fadeUp(0.12)} className="text-[#AAACAC] font-ivy text-[16px] sm:text-[20px] md:text-[24px] leading-snug">
+          <motion.p
+            {...fadeUp(0.12)}
+            className="text-[#AAACAC] font-ivy text-[16px] sm:text-[20px] md:text-[24px] leading-snug"
+          >
             {activePackage.tagline}
           </motion.p>
         </div>
 
         {/* Details */}
         <div className="w-full max-w-[599px] flex flex-col gap-4 sm:gap-[22px] mb-6 sm:mb-8">
-          <motion.h4 {...fadeUp(0.18)} className="text-[#706A63] uppercase font-gilroySemiBold text-[16px] sm:text-[20px] md:text-[24px] leading-snug">
+          <motion.h4
+            {...fadeUp(0.18)}
+            className="text-[#706A63] uppercase font-gilroySemiBold text-[16px] sm:text-[20px] md:text-[24px] leading-snug"
+          >
             DETAILS
           </motion.h4>
           <ul className="space-y-3 sm:space-y-[15px] text-black">
-            {activePackage.details.map((detail: string, idx: number) => (
-              <motion.li key={`${activePackage.id}-detail-${idx}`} {...fadeUp(0.22 + idx * 0.05)} className="flex items-center gap-2 sm:gap-[10px]">
+            {activePackage.details.map((detail, idx) => (
+              <motion.li
+                key={`${activePackage.id}-detail-${idx}`}
+                {...fadeUp(0.22 + idx * 0.05)}
+                className="flex items-center gap-2 sm:gap-[10px]"
+              >
                 <div className="flex items-center justify-center bg-[#C73740] w-[22px] h-[22px] sm:w-[26px] sm:h-[26px] md:w-[30px] md:h-[33px] rounded-[4px] shrink-0">
-                  <svg width="14" height="10" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 5.5L5.5 10L15 1" stroke="#FFFFFF" strokeWidth="2" />
+                  <svg
+                    width="14"
+                    height="10"
+                    viewBox="0 0 16 11"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M1 5.5L5.5 10L15 1"
+                      stroke="#FFFFFF"
+                      strokeWidth="2"
+                    />
                   </svg>
                 </div>
                 <span className="font-gilroyMedium text-[14px] sm:text-[18px] md:text-[20px] leading-snug text-[#191919] uppercase">
@@ -76,7 +104,10 @@ export default function PackageCard({ activePackage }: { activePackage: any }) {
         </div>
 
         {/* Price + Timeline + Button */}
-        <motion.div {...fadeUp(0.24 + activePackage.details.length * 0.05)} className="w-full flex flex-col gap-6 sm:gap-[32px]">
+        <motion.div
+          {...fadeUp(0.24 + activePackage.details.length * 0.05)}
+          className="w-full flex flex-col gap-6 sm:gap-[32px]"
+        >
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-[32px] font-ivy">
             <p className="flex items-center gap-2 sm:gap-[9px] text-[16px] sm:text-[20px] md:text-[24px] font-semibold leading-snug">
               <span className="text-[#C73740]">$</span>
@@ -84,7 +115,15 @@ export default function PackageCard({ activePackage }: { activePackage: any }) {
               <span className="text-black">{activePackage.price}</span>
             </p>
             <p className="flex items-center gap-2 text-[16px] sm:text-[20px] md:text-[24px] font-semibold leading-snug">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#C73740" strokeWidth="2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="#C73740"
+                strokeWidth="2"
+              >
                 <circle cx="12" cy="12" r="9" />
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 7v5l3 2" />
               </svg>
