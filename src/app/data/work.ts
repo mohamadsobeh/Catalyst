@@ -13,7 +13,7 @@ export const workItems: WorkItem[] = [
     categoryColor: "text-red-500",
     description:
       "preview your ad, hit Publish, and watch it go live in seconds.You can even save drafts or boost visibility to reach more buyers.",
-    image: "/work3.jpg",
+    image: "/work1.png",
   },
   {
     title: "Catalyst Menu",
@@ -21,7 +21,7 @@ export const workItems: WorkItem[] = [
     categoryColor: "text-red-500",
     description:
       "An interactive menu and ordering system for restaurants and cafés. Features instant updates, QR-code access, and online ordering options.",
-    image: "/work2.jpg",
+    image: "/work2.png",
   },
    {
     title: "Doctorna",
@@ -29,7 +29,7 @@ export const workItems: WorkItem[] = [
     categoryColor: "text-red-500",
     description:
       "preview your ad, hit Publish, and watch it go live in seconds.You can even save drafts or boost visibility to reach more buyers.",
-    image: "/work4.jpg",
+    image: "/work3.png",
   },
   {
     title: "Talab Apps",
@@ -37,7 +37,7 @@ export const workItems: WorkItem[] = [
     categoryColor: "text-red-500",
     description:
       "preview your ad, hit Publish, and watch it go live in seconds.You can even save drafts or boost visibility to reach more buyers.",
-    image: "/work5.jpg",
+    image: "/work4.png",
   },
  {
     title: "Catalyst Storefront",
@@ -45,6 +45,6 @@ export const workItems: WorkItem[] = [
     categoryColor: "text-red-500",
     description:
       "A ready-to-launch e-commerce platform for retailers and brands. Includes inventory management, secure payments, and mobile-first design.",
-    image: "/work1.jpg",
+    image: "/work5.png",
   },
 ];

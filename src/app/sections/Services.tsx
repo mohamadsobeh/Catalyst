@@ -3,7 +3,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { services } from "@/app/data/services";
 import { motion } from "framer-motion";
 
-// Variants للكروت
 const cardVariants = {
   hidden: { opacity: 0, y: 40, scale: 0.95 },
   show: { opacity: 1, y: 0, scale: 1 },
@@ -46,7 +45,7 @@ export default function Services() {
           whileInView={{ scaleX: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="border-t border-[#5B5958] mb-12 origin-left"
+        className="border-t border-[#5B5958] mb-12 origin-left"
         ></motion.div>
 
         {/* card*/}

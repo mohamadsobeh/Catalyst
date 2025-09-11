@@ -16,7 +16,7 @@ export default function Hero() {
                  overflow-hidden"
     >
       <div className="max-w-[1191px] w-full">
-        {/* العنوان مع أنيميشن */}
+        
         <motion.h1
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
@@ -32,14 +32,13 @@ export default function Hero() {
           Powering the Future of Digital Solutions.
         </motion.h1>
 
-        {/* زر CTA مربوط بالديالوغ مع أنيميشن */}
         <ContactDialog>
           <motion.button
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
               duration: 0.8,
-              delay: 0.4, // 👈 يظهر بعد العنوان
+              delay: 0.4, 
               ease: [0.25, 0.8, 0.25, 1],
             }}
             whileHover={{ scale: 1.05 }}
@@ -59,7 +58,6 @@ export default function Hero() {
         </ContactDialog>
       </div>
 
-      {/* Gif يظهر فقط على الديسكتوب في الجهة اليمنى */}
       <div className="hidden lg:block absolute top-1/2 right-24 -translate-y-1/2">
         <Gif />
       </div>

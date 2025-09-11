@@ -7,14 +7,14 @@ import { ContactDialog } from "@/components/ui/ContactDialog";
 export default function Footer() {
   return (
     <footer className="relative text-white px-6 sm:px-10 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20">
-      {/* خلفية */}
+      {/* pattern*/}
       <div className="absolute inset-0">
         <div className="w-full h-full bg-footer-pattern bg-repeat backdrop-blur"></div>
       </div>
 
       <div className="relative z-10 max-w-[1280px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          {/* نص */}
+
           <div>
             <h2 className="text-[22px] sm:text-[26px] md:text-[32px] font-gilroyMedium leading-[1.4] text-white">
               Your next success starts here <br /> let’s build it together.
@@ -24,7 +24,6 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* زر Contact داخل Dialog */}
           <div className="flex md:justify-end">
             <ContactDialog>
               <button
@@ -41,7 +40,7 @@ export default function Footer() {
         <div className="my-10 border-t border-white/15"></div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-          {/* Logo */}
+          
           <div className="flex items-center gap-2">
             <Image src="/footer.svg" alt="Catalyst Logo" width={52} height={49} />
             <span className="text-[36px] font-medium text-white leading-none">
@@ -49,7 +48,7 @@ export default function Footer() {
             </span>
           </div>
 
-          {/* Contacts */}
+         
           <div className="flex flex-col md:justify-self-end md:text-start">
             <h3 className="text-base sm:text-lg font-gilroyMedium mb-3 text-[#D3D3D3]">
               Contacts
@@ -65,7 +64,7 @@ export default function Footer() {
             </a>
           </div>
 
-          {/* Social Media */}
+          
           <div className="flex flex-col md:justify-self-end md:text-right">
             <h3 className="text-base sm:text-lg font-gilroyMedium mb-3 text-[#D3D3D3]">
               Social Media

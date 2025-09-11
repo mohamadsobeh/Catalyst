@@ -108,7 +108,7 @@ export default function Header() {
                 <Menu />
               </Button>
             </SheetTrigger>
-            {/* ✅ القائمة تظهر من اليمين */}
+            {/* side right*/}
             <SheetContent side="right" className="bg-white text-black w-64">
               <SheetTitle className="sr-only">Mobile Navigation</SheetTitle>
               <div className="flex flex-col gap-4 mt-10 px-4 text-base font-medium">
