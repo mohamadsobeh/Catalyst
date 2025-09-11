@@ -3,14 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { PACKAGES } from "@/app/data/packages";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+import { ContactDialog } from "@/components/ui/ContactDialog";
 
 export default function Packages() {
   const [activeTab, setActiveTab] = useState("starter");
@@ -153,56 +146,17 @@ export default function Packages() {
                   </p>
                 </div>
 
-                {/* Dialog Trigger */}
-                <Dialog>
-                  <DialogTrigger asChild>
-                    <button
-                      className="w-full sm:w-[300px] md:w-[427px] h-[54px] sm:h-[60px] md:h-[68px] 
-                      flex items-center justify-center text-[16px] sm:text-[20px] md:text-[24px] 
-                      font-gilroySemiBold uppercase text-black border-b-2 border-[#C73740] 
-                      hover:text-[#C73740] transition"
-                    >
-                      LET’S DISCUSS YOUR PROJECT
-                    </button>
-                  </DialogTrigger>
-                  <DialogContent className="w-[90%] sm:w-[80%] md:max-w-[748px] rounded-xl border border-[#E7E7E7] bg-[#1E1C1B] px-4 sm:px-6 md:px-[35px] py-6 sm:py-8 md:py-[35px]">
-                    <DialogHeader>
-                      <DialogTitle className="text-[#C73740] font-gilroyMedium text-[20px] sm:text-[28px] md:text-[40px] leading-snug">
-                        {activePackage.title}
-                      </DialogTitle>
-                      <DialogDescription className="text-[#AAACAC] font-ivy text-[16px] sm:text-[20px] md:text-[24px] leading-snug">
-                        {activePackage.tagline}
-                      </DialogDescription>
-                    </DialogHeader>
-
-                    {/* Details in Dialog */}
-                    <div className="mt-6 space-y-4 sm:space-y-[22px]">
-                      <h4 className="text-[#706A63] uppercase font-gilroySemiBold text-[16px] sm:text-[20px] md:text-[24px]">
-                        USE CASES
-                      </h4>
-                      <ul className="space-y-3 sm:space-y-[21px] text-black">
-                        {activePackage.details.map((detail, idx) => (
-                          <li key={idx} className="flex items-center gap-2 sm:gap-[10px]">
-                            <div className="flex items-center justify-center bg-[#C73740] w-[22px] h-[22px] sm:w-[26px] sm:h-[26px] md:w-[30px] md:h-[33px] rounded-[4px] shrink-0">
-                              <svg
-                                width="14"
-                                height="10"
-                                viewBox="0 0 16 11"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path d="M1 5.5L5.5 10L15 1" stroke="#FFFFFF" strokeWidth="2" />
-                              </svg>
-                            </div>
-                            <span className="font-gilroyMedium text-[14px] sm:text-[18px] md:text-[20px] text-[#191919] uppercase">
-                              {detail}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </DialogContent>
-                </Dialog>
+                {/* Contact Button (بدون Dialog) */}
+                <ContactDialog>
+                  <button
+                    className="w-full sm:w-[300px] md:w-[427px] h-[54px] sm:h-[60px] md:h-[68px] 
+                    flex items-center justify-center text-[16px] sm:text-[20px] md:text-[24px] 
+                    font-gilroySemiBold uppercase text-black border-b-2 border-[#C73740] 
+                    hover:text-[#C73740] transition"
+                  >
+                    LET’S DISCUSS YOUR PROJECT
+                  </button>
+                </ContactDialog>
               </div>
             </div>
           </div>

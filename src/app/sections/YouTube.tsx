@@ -1,5 +1,6 @@
 "use client"
 import React, { useEffect, useRef, useState } from "react"
+import { motion } from "framer-motion"
 
 interface YouTubeProps {
   videoUrl: string
@@ -30,7 +31,7 @@ const YouTube: React.FC<YouTubeProps> = ({ videoUrl }) => {
           }
         })
       },
-      { root: null, rootMargin: "200px", threshold: 0.01 }
+      { root: null, rootMargin: "200px", threshold: 0.1 }
     )
 
     observer.observe(wrapRef.current)
@@ -40,14 +41,18 @@ const YouTube: React.FC<YouTubeProps> = ({ videoUrl }) => {
   return (
     <section
       id="youtube"
-      className="w-full flex justify-center items-center  py-12 md:py-20"
+      className="w-full flex justify-center items-center py-12 md:py-20"
     >
       {isInvalid ? (
         <div className="text-red-500 text-center">Invalid video URL</div>
       ) : (
-        <div
+        <motion.div
           ref={wrapRef}
-          className="relative w-[95%] md:w-[1771px] h-[220px] sm:h-[400px] md:h-[785px] bg-[#18181899] rounded-md shadow-2xl flex justify-center items-center"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={inView ? { opacity: 1, scale: 1 } : {}}
+          transition={{ duration: 0.8, ease: [0.25, 0.8, 0.25, 1] }}
+          className="relative w-[95%] md:w-[1771px] h-[220px] sm:h-[400px] md:h-[785px] 
+                     bg-[#18181899] rounded-md shadow-2xl flex justify-center items-center"
         >
           {inView ? (
             <iframe
@@ -60,9 +65,14 @@ const YouTube: React.FC<YouTubeProps> = ({ videoUrl }) => {
               allowFullScreen
             />
           ) : (
-            <div className="w-[90%] h-[90%] rounded-xl bg-black/40 animate-pulse" />
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6 }}
+              className="w-[90%] h-[90%] rounded-xl bg-black/40 animate-pulse"
+            />
           )}
-        </div>
+        </motion.div>
       )}
     </section>
   )

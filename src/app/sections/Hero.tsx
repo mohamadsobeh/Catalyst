@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { ContactDialog } from "@/components/ui/ContactDialog";
 import Gif from "./gif";
 
@@ -15,19 +16,34 @@ export default function Hero() {
                  overflow-hidden"
     >
       <div className="max-w-[1191px] w-full">
-        {/* العنوان */}
-        <h1
+        {/* العنوان مع أنيميشن */}
+        <motion.h1
+          initial={{ opacity: 0, y: 60 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.9,
+            ease: [0.25, 0.8, 0.25, 1],
+          }}
           className="text-[24px] sm:text-[32px] md:text-[44px] lg:text-[60px] 
                      font-gilroySemiBold text-black 
                      leading-[120%] tracking-tight"
         >
           Catalyst Techs: <br className="hidden sm:block" />
           Powering the Future of Digital Solutions.
-        </h1>
+        </motion.h1>
 
-        {/* زر CTA مربوط بالديالوغ */}
+        {/* زر CTA مربوط بالديالوغ مع أنيميشن */}
         <ContactDialog>
-          <button
+          <motion.button
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.8,
+              delay: 0.4, // 👈 يظهر بعد العنوان
+              ease: [0.25, 0.8, 0.25, 1],
+            }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
             className="mt-6 sm:mt-8 inline-flex
                        h-[50px] sm:h-[60px] md:h-[75px] lg:h-[90px]
                        w-[200px] sm:w-[250px] md:w-[320px] lg:w-[376px]
@@ -39,7 +55,7 @@ export default function Hero() {
                        transition-colors hover:bg-[#C73740]"
           >
             Contact Us
-          </button>
+          </motion.button>
         </ContactDialog>
       </div>
 

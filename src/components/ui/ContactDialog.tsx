@@ -1,13 +1,13 @@
 "use client";
 
 import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-  DialogClose,
-} from "@/components/ui/dialog";
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+  SheetClose,
+} from "@/components/ui/sheet";
 import {
   Select,
   SelectContent,
@@ -23,7 +23,7 @@ type FormData = {
   name: string;
   email: string;
   industry: string;
-  product: string[]; 
+  product: string[];
   message: string;
 };
 
@@ -39,7 +39,6 @@ export function ContactDialog({ children }: { children: React.ReactNode }) {
     formState: { errors },
   } = useForm<FormData>();
 
-  
   const onSubmit = async (data: FormData): Promise<void> => {
     setIsSubmitting(true);
     try {
@@ -61,46 +60,47 @@ export function ContactDialog({ children }: { children: React.ReactNode }) {
       setIsSubmitting(false);
     }
   };
-  
+
   useEffect(() => {
-  if (status) {
-    const timer = setTimeout(() => {
-      setStatus(null);
-    }, 4000); // يختفي بعد 4 ثواني
-    return () => clearTimeout(timer);
-  }
-}, [status]);
+    if (status) {
+      const timer = setTimeout(() => {
+        setStatus(null);
+      }, 4000);
+      return () => clearTimeout(timer);
+    }
+  }, [status]);
 
   return (
-    <Dialog>
-      <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent
+    <Sheet>
+      <SheetTrigger asChild>{children}</SheetTrigger>
+      <SheetContent
+        side="right"
         className="
-          w-full max-w-[95%] sm:max-w-[770px] 
-          h-auto max-h-[95vh] 
+          w-full sm:max-w-[770px] 
+          h-full 
           bg-[#E9E9E9] 
           p-4 sm:p-6 md:p-10 
-          rounded-[16px]
           overflow-y-auto
+          rounded-none
         "
       >
         {/* Close Button */}
-        <DialogClose className="absolute right-4 top-4 w-[28px] h-[28px] sm:w-[36px] sm:h-[36px] flex items-center justify-center">
+        <SheetClose className="absolute right-4 top-4 w-[28px] h-[28px] sm:w-[36px] sm:h-[36px] flex items-center justify-center">
           <div className="relative w-full h-full">
             <span className="absolute top-1/2 left-0 w-full h-[3px] sm:h-[4px] bg-black transform -rotate-45 origin-center"></span>
             <span className="absolute top-1/2 left-0 w-full h-[3px] sm:h-[4px] bg-black transform rotate-45 origin-center"></span>
           </div>
-        </DialogClose>
+        </SheetClose>
 
         {/* Header */}
-        <DialogHeader className="mb-6 sm:mb-8 space-y-2">
+        <SheetHeader className="mb-6 sm:mb-8 space-y-2">
           <p className="text-[18px] sm:text-[24px] md:text-[28px] leading-[28px] sm:leading-[32px] font-gilroySemiBold text-[#AAACAC]">
             Contact us
           </p>
-          <DialogTitle className="text-[28px] sm:text-[36px] md:text-[48px] leading-[120%] font-gilroyMedium text-black">
+          <SheetTitle className="text-[28px] sm:text-[36px] md:text-[48px] leading-[120%] font-gilroyMedium text-black">
             have a project lets <br /> talk about it!
-          </DialogTitle>
-        </DialogHeader>
+          </SheetTitle>
+        </SheetHeader>
 
         {/* Form */}
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -202,9 +202,10 @@ export function ContactDialog({ children }: { children: React.ReactNode }) {
                     <input
                       type="checkbox"
                       value={product}
-                      {...register("product", {   validate: (value) =>
-              value.length > 0 || "Product type is required",
-          })}
+                      {...register("product", {
+                        validate: (value) =>
+                          value.length > 0 || "Product type is required",
+                      })}
                       className="w-4 h-4 sm:w-5 sm:h-5 rounded-full border border-[#6D6D6D] checked:border-[#C73740] appearance-none 
                                flex items-center justify-center cursor-pointer
                                checked:before:content-[''] checked:before:block checked:before:w-2 sm:checked:before:w-3 checked:before:h-2 sm:checked:before:h-3 
@@ -250,28 +251,27 @@ export function ContactDialog({ children }: { children: React.ReactNode }) {
               {isSubmitting ? "Sending..." : "send message"}
             </button>
 
-           
-           {/* Status Message */}
-{status && (
-  <div
-    className={`
-      mt-4 px-4 py-3 rounded-[12px] text-sm font-gilroyMedium shadow-md w-fit
-      transition-opacity duration-500
-      ${status === "success" 
-        ? "bg-[#F7D6D4] text-[#A02436] border border-[#A02436]" 
-        : "bg-[#FFE5E7] text-[#C73740] border border-[#C73740]"}
-    `}
-  >
-    {status === "success"
-      ? " Message sent successfully!"
-      : " Failed to send. Please try again."}
-  </div>
-)}
-
-
+            {/* Status Message */}
+            {status && (
+              <div
+                className={`
+                  mt-4 px-4 py-3 rounded-[12px] text-sm font-gilroyMedium shadow-md w-fit
+                  transition-opacity duration-500
+                  ${
+                    status === "success"
+                      ? "bg-[#F7D6D4] text-[#A02436] border border-[#A02436]"
+                      : "bg-[#FFE5E7] text-[#C73740] border border-[#C73740]"
+                  }
+                `}
+              >
+                {status === "success"
+                  ? " Message sent successfully!"
+                  : " Failed to send. Please try again."}
+              </div>
+            )}
           </div>
         </form>
-      </DialogContent>
-    </Dialog>
+      </SheetContent>
+    </Sheet>
   );
 }
