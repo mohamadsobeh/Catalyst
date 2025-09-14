@@ -22,7 +22,7 @@
 
 /* Ivy Style Sans Regular */
 @font-face {
-  font-family: 'IvyStyleSans-Regular';
+  font-family: 'Ivy-Regular';
   src: url('/fonts/ivy/IvyStyleSans-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
@@ -136,6 +136,8 @@ a {
     @apply bg-catalyst-bg text-foreground;
   }
 }
+
+
 
 
 

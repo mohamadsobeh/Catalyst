@@ -34,8 +34,6 @@ export default function PackagesTabs({
           key={pkg.id}
           onClick={() => setActiveTab(pkg.id)}
           variants={fadeUp(0)}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
           className={`
             flex-shrink-0 sm:flex-1 
             h-[54px] sm:h-[64px] md:h-[78px] 

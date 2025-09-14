@@ -6,7 +6,7 @@ import Hero from "./sections/Hero";
  import Services from "./sections/Services"
  import Packages from "./sections/Packages"
  import Approach from "./sections/Approach"
-//  import Team from "./sections/Team"
+  import Team from "./sections/Team"
  import Work from "./sections/Work"
 import YouTube from "./sections/YouTube";
 // import ContactCTA from "./sections/ContactCTA"
@@ -48,9 +48,9 @@ export default function Page() {
 
       
 
-       {/* <section id="team">
+        <section id="team">
         <Team />
-      </section> */}
+      </section> 
 
       
 

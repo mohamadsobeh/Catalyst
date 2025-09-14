@@ -31,6 +31,20 @@ const navItems = [
 export default function Header() {
   const [active, setActive] = useState("");
 
+  const handleContactClick = () => {
+    const footer = document.getElementById("footer-contact");
+    if (footer) {
+      footer.scrollIntoView({ behavior: "smooth" });
+
+      setTimeout(() => {
+        const btn = document.getElementById("contact-us-trigger");
+        if (btn) {
+          (btn as HTMLElement).click();
+        }
+      }, 800);
+    }
+  };
+
   return (
     <header className="sticky top-8 z-50 w-full bg-catalyst-bg bg-pattern bg-repeat backdrop-blur">
       <div className="container flex items-center justify-between">
@@ -80,17 +94,12 @@ export default function Header() {
               ))}
 
               <NavigationMenuItem>
-                <NavigationMenuLink asChild>
-                  <ScrollLink
-                    to="contact"
-                    smooth
-                    duration={500}
-                    offset={-80}
-                    className="rounded-full bg-catalyst-contact px-6 py-2 text-base font-medium text-black cursor-pointer"
-                  >
-                    Contact
-                  </ScrollLink>
-                </NavigationMenuLink>
+                <button
+                  onClick={handleContactClick}
+                  className="rounded-full bg-catalyst-contact px-6 py-2 text-base font-medium text-black cursor-pointer"
+                >
+                  Contact
+                </button>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
@@ -132,15 +141,12 @@ export default function Header() {
                 ))}
 
                 <SheetClose asChild>
-                  <ScrollLink
-                    to="contact"
-                    smooth
-                    duration={500}
-                    offset={-80}
+                  <button
+                    onClick={handleContactClick}
                     className="rounded-full bg-catalyst-contact px-4 py-2 text-base font-medium text-black mt-2 text-center cursor-pointer"
                   >
                     Contact
-                  </ScrollLink>
+                  </button>
                 </SheetClose>
               </div>
             </SheetContent>

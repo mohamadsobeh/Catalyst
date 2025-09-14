@@ -36,7 +36,7 @@ export default function About() {
   }, []);
 
   return (
-    <section className="w-full bg-[#F1F1F1] py-16 sm:py-20 px-4 sm:px-10 md:px-16 lg:px-24">
+    <section className="w-full bg-[#E9E9E9] py-16 sm:py-20 px-4 sm:px-10 md:px-16 lg:px-24">
       <div className="max-w-screen-xl mx-auto flex flex-col gap-10">
         <AboutHeader />
         <AboutImage />

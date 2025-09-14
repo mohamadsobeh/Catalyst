@@ -6,7 +6,7 @@ import ApproachStep from "./Approach/ApproachStep";
 
 export default function Approach() {
   return (
-    <section className="w-full bg-[#F1F1F1] py-16 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-24">
+    <section className="w-full bg-[#E9E9E9] py-16 sm:py-20 px-4 sm:px-8 md:px-12 lg:px-24">
       <div className="max-w-screen-xl mx-auto">
         <ApproachHeader />
         {/* Steps */}
