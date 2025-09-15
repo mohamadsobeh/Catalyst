@@ -21,7 +21,7 @@ export const PACKAGES = {
         "Basic SEO & Google Analytics",
         "1-month technical support",
       ],
-      price: "$200",
+      price: "1000$",
       timeline: "6 weeks",
     },
     {
@@ -34,7 +34,7 @@ export const PACKAGES = {
         "Integrations with third-party services",
         "3 months technical support",
       ],
-      price: "Custom Quote",
+      price: "Starting 2000$",
       timeline: "Based on scope",
     },
     {

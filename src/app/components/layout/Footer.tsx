@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Linkedin, Instagram } from "lucide-react";
+import { Linkedin, Instagram, Phone, MessageCircle } from "lucide-react";
 import { ContactDialog } from "@/components/ui/ContactDialog";
 
 export default function Footer() {
@@ -50,13 +50,27 @@ export default function Footer() {
             </span>
           </div>
 
+          {/* Contacts */}
           <div className="flex flex-col md:justify-self-end md:text-start">
             <h3 className="text-base sm:text-lg font-gilroyMedium mb-3 text-[#D3D3D3]">
               Contacts
             </h3>
-            <p className="text-sm font-gilroyMedium text-white mb-2">
+            <a
+              href="https://wa.me/963964603911"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-sm font-gilroyMedium text-white mb-2 hover:text-green-400 transition"
+            >
+              <MessageCircle size={16} className="text-green-400" />
               (+963) 964603911
-            </p>
+            </a>
+            <a
+              href="tel:+963992291621"
+              className="flex items-center gap-2 text-sm font-gilroyMedium text-white mb-2 hover:text-blue-400 transition"
+            >
+              <Phone size={16} className="text-blue-400" />
+              (+963) 992291621
+            </a>
             <a
               href="mailto:Support@Catalysttechs.com"
               className="text-sm font-gilroyMedium text-white hover:underline break-words"
@@ -65,6 +79,7 @@ export default function Footer() {
             </a>
           </div>
 
+          {/* Socials */}
           <div className="flex flex-col md:justify-self-end md:text-right">
             <h3 className="text-base sm:text-lg font-gilroyMedium mb-3 text-[#D3D3D3]">
               Social Media
