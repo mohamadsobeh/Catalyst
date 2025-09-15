@@ -8,22 +8,19 @@ import { cn } from "@/lib/utils";
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper"; // ✅ النوع الصحيح
 import "swiper/css";
 
 export default function OurTeam() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const swiperRef = useRef<any>(null);
+  const swiperRef = useRef<SwiperType | null>(null); // ✅ بدون any
 
   const handlePrev = () => {
-    if (swiperRef.current) {
-      swiperRef.current.slidePrev();
-    }
+    swiperRef.current?.slidePrev();
   };
 
   const handleNext = () => {
-    if (swiperRef.current) {
-      swiperRef.current.slideNext();
-    }
+    swiperRef.current?.slideNext();
   };
 
   return (
@@ -59,9 +56,9 @@ export default function OurTeam() {
           slidesPerView={1} // موبايل
           centeredSlides={true} // يخلي الكارت النشط بالوسط
           breakpoints={{
-            640: { slidesPerView: 2, centeredSlides: false }, 
-            1024: { slidesPerView: 3, centeredSlides: true }, 
-            1440: { slidesPerView: 4, centeredSlides: true }, 
+            640: { slidesPerView: 2, centeredSlides: false }, // تابلت
+            1024: { slidesPerView: 3, centeredSlides: true }, // ديسكتوب
+            1440: { slidesPerView: 4, centeredSlides: true }, // شاشات كبيرة
           }}
           onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
           onSwiper={(swiper) => {
@@ -77,9 +74,9 @@ export default function OurTeam() {
                   index === 0
                     ? "bg-[#1C1C1C] text-white"
                     : "bg-black text-white",
-    index === activeIndex
-          ? "scale-105 shadow-2xl"
-          : "opacity-80 grayscale"
+                  index === activeIndex
+                    ? "scale-105 shadow-2xl"
+                    : "opacity-80 grayscale"
                 )}
                 style={
                   index === activeIndex
