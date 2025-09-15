@@ -99,11 +99,13 @@ export default function OurTeam() {
                     />
                   </div>
                 ) : (
-                  <div className="w-full h-[380px] relative">
+                  <div className="flex flex-col items-center justify-center h-[380px]">
                     <Image
                       src={member.img}
                       alt={member.name}
-                      fill
+                      width={250}
+                      height={320}
+                      
                       className="object-cover rounded-t-[18px]"
                     />
                   </div>
