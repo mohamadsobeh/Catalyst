@@ -93,6 +93,7 @@ export default function Header() {
                 </NavigationMenuItem>
               ))}
 
+              {/* Contact زر يظهر فقط على الديسكتوب */}
               <NavigationMenuItem>
                 <button
                   onClick={handleContactClick}
@@ -139,15 +140,6 @@ export default function Header() {
                     </ScrollLink>
                   </SheetClose>
                 ))}
-
-                <SheetClose asChild>
-                  <button
-                    onClick={handleContactClick}
-                    className="rounded-full bg-catalyst-contact px-4 py-2 text-base font-medium text-black mt-2 text-center cursor-pointer"
-                  >
-                    Contact
-                  </button>
-                </SheetClose>
               </div>
             </SheetContent>
           </Sheet>
